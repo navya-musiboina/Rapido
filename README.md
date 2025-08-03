@@ -1,70 +1,126 @@
-# Getting Started with Create React App
+# Rapido Ride-Sharing Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Rapido is a full-stack ride-sharing platform designed to provide fast, affordable, and reliable transportation services. This repository contains both the frontend (React) and backend (Node.js/Express) codebases.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Overview
 
-### `npm start`
+Rapido enables users to register, book rides, view ride details, and manage their profiles. Admins can log in, view analytics, and manage rides. The application uses RESTful APIs for communication between the frontend and backend, and MongoDB for data storage.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project Structure
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+backend/
+  └── Node.js/Express API, MongoDB models, controllers, routes
+frontend/
+  └── React SPA, pages, components, assets
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## How to Run the Project
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `npm run eject`
+- Node.js (v16+ recommended)
+- npm (v8+ recommended)
+- MongoDB (local or cloud instance)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Backend Setup
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Navigate to the backend directory:
+   sh
+   cd backend
+   
+2. Install dependencies:
+   sh
+   npm install
+   
+3. Configure environment variables in .env (see .env.example if available).
+4. Start the backend server:
+   sh
+   npm run dev
+   
+   The backend runs on [http://localhost:5000](http://localhost:5000).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Frontend Setup
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Open a new terminal and navigate to the frontend directory:
+   sh
+   cd frontend
+   
+2. Install dependencies:
+   sh
+   npm install
+   
+3. Start the frontend development server:
+   sh
+   npm start
+   
+   The frontend runs on [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## API Endpoints
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Authentication
 
-### Code Splitting
+- POST /api/auth/register — Register a new user
+- POST /api/auth/login — User login
+- GET /api/auth/user — Get authenticated user info
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Ride Management
 
-### Analyzing the Bundle Size
+- POST /api/rides/create — Create a new ride
+- GET /api/rides/:id — Get ride details
+- POST /api/rides/cancel — Cancel a ride
+- GET /api/rides/user — Get user's rides
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Admin
 
-### Making a Progressive Web App
+- POST /api/admin/login — Admin login
+- GET /api/admin/all-rides — Get all rides (admin only)
+- GET /api/admin/analytics — Get ride analytics
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## Application Flow
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. *User Registration & Login*
+   - Users register via /register and log in via /login.
+   - Authenticated users can book rides, view ride details, and manage their profile.
 
-### Deployment
+2. *Ride Booking*
+   - Users create rides, view ride status, and cancel rides if needed.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+3. *Admin Panel*
+   - Admins log in via /admin/login.
+   - Admin dashboard provides analytics, ride management, and filtering capabilities.
 
-### `npm run build` fails to minify
+4. *API Communication*
+   - Frontend communicates with backend via RESTful APIs using Axios.
+   - JWT tokens are used for authentication and authorization.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## Technologies Used
+
+- *Frontend:* React, React Router, Axios, React Toastify
+- *Backend:* Node.js, Express, MongoDB, Mongoose, JWT, Swagger
+- *Testing:* Jest, React Testing Library
+- *Documentation:* Swagger UI
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+## Contact
+
+For support or inquiries, contact [support@rapido.com](mailto:support@rapido.com).
